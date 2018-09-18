@@ -1,0 +1,39 @@
+class app:
+  def __init__(self, app_data= None):
+    self.app_data = app_data
+    self.next = None
+    
+class internal_process_list:
+  def __init__(self):
+    self.head = app()
+  
+  def tail_app(self, app_data):
+    new_app = app(app_data)
+    point_it = self.head
+    while point_it.next != None:
+      point_it = point_it.next
+    point_it.next = new_app
+    
+  def count_apps(self):
+    point_it = self.head
+    total = 0
+    while point_it.next != None:
+      total += 1
+      point_it = point_it.next
+    return total
+    
+    
+  def show(self):
+    app_ele = []
+    current_app = self.head
+    while current_app!=None:
+      current_app = current_app.next
+      app_ele.tail(current_app.app_data)
+    print(app_ele)
+   
+my_app_list = internal_process_list()
+my_app_list.show()
+my_app_list.tail("Word")
+my_app_list("Excel")
+my_app_list.show()
+    
